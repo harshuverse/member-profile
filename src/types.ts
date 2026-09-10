@@ -228,31 +228,7 @@ export const SAMPLE_MEMBERS: Record<string, MemberProfile> = {
         repoStatus: 'Private Org',
       },
     ],
-    uploadedProjects: [
-      {
-        id: 'up-k1',
-        title: 'LiDAR Point Cloud Odometry',
-        description: 'Real-time 3D semantic segmentation and trajectory computation on embedded Jetson platforms.',
-        techStack: ['ROS2', 'C++', 'CUDA', 'Point Cloud Library'],
-        githubUrl: 'https://github.com/ascent-club/lidar-odometry',
-        demoUrl: 'https://rover-telemetry.ascent.internal',
-        category: 'Robotics & Vision',
-        uploadedAt: 'September 01, 2026',
-        status: 'Featured',
-        version: 'v2.0.1',
-      },
-      {
-        id: 'up-k2',
-        title: 'Edge-YOLO Quadrotor Tracker',
-        description: 'Sub-5ms object tracker executing on TensorRT edge devices for autonomous UAV target following.',
-        techStack: ['PyTorch', 'TensorRT', 'OpenCV', 'Python'],
-        githubUrl: 'https://github.com/ascent-club/edge-yolo-tracker',
-        category: 'Computer Vision',
-        uploadedAt: 'July 19, 2026',
-        status: 'Approved',
-        version: 'v1.1.0',
-      },
-    ],
+    uploadedProjects: [],
     certificates: [
       {
         id: 'cert-k1',

@@ -47,9 +47,6 @@ export function LoginPage({ onLoginClick, onNavigateToRegistration }: LoginPageP
               <h2 className="font-heading text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
                 Member Login
               </h2>
-              <p className="font-subheading text-xs sm:text-sm text-[#8E9296] mt-1.5 leading-relaxed">
-                Fueling ideas, shaping futures. Enter your credentials to access Ascent projects, division workspaces, and exclusive resources.
-              </p>
             </div>
 
             {/* Login Form */}

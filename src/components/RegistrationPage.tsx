@@ -189,16 +189,10 @@ export function RegistrationPage({ onBackToLogin, onGoToPortal }: RegistrationPa
           {/* Accent horizontal bar */}
           <div className="w-12 h-1 bg-[#D4A373] rounded-full mb-4 shadow-sm shadow-[#D4A373]/30" />
 
-          {/* Heading in Inter font with two-tone styling */}
+          {/* Heading */}
           <h1 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
-            Member Registration <span className="text-[#D4A373]">& Profile</span>
+            Registration
           </h1>
-
-          {/* Subheading in Century Gothic */}
-          <p className="font-subheading text-[#A3A3A3] text-sm sm:text-base mt-2 max-w-2xl leading-relaxed">
-            Fueling ideas, shaping futures. Complete your member profile below to join Ascent’s
-            engineering divisions, technical labs, workshops, and competitive hackathon teams.
-          </p>
         </div>
 
         {/* Success Modal / Banner */}

@@ -319,45 +319,13 @@ export function MemberPortal({
       {/* Top Controls Bar */}
       <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 pb-6 mb-8 border-b border-[#26282A]">
         <div>
-          <span className="text-[10px] font-subheading text-[#8E9296] uppercase tracking-wider block">
-            Ascent Intranet
-          </span>
-          <h2 className="text-sm font-heading font-bold text-white flex items-center gap-2">
-            <span>Member Workspace</span>
-            <span className="text-xs px-2 py-0.5 rounded-full bg-[#141517] text-[#D4A373] border border-[#D4A373]/30 font-mono-tech">
-              {activeProfile.id}
-            </span>
+          <h2 className="text-sm font-heading font-bold text-white">
+            Member Workspace
           </h2>
         </div>
 
-        {/* Member Switcher & Global Navigation */}
+        {/* Global Navigation */}
         <div className="flex flex-wrap items-center justify-end gap-2 sm:gap-3">
-          <div className="flex items-center gap-1.5 px-2.5 py-1 bg-[#0C0D0E] border border-[#26282A] rounded-full">
-            <span className="text-[10px] font-subheading text-[#8E9296] pl-1">Switch:</span>
-            <button
-              type="button"
-              onClick={() => setActiveProfile(SAMPLE_MEMBERS['1MS22CS042'])}
-              className={`text-xs px-2.5 py-0.5 rounded-full font-subheading transition-all ${
-                activeProfile.usn === '1MS22CS042'
-                  ? 'bg-[#D4A373] text-[#000000] font-bold'
-                  : 'text-[#D1D5DB] hover:text-white'
-              }`}
-            >
-              Alex (Lead)
-            </button>
-            <button
-              type="button"
-              onClick={() => setActiveProfile(SAMPLE_MEMBERS['1MS23AI018'])}
-              className={`text-xs px-2.5 py-0.5 rounded-full font-subheading transition-all ${
-                activeProfile.usn === '1MS23AI018'
-                  ? 'bg-[#D4A373] text-[#000000] font-bold'
-                  : 'text-[#D1D5DB] hover:text-white'
-              }`}
-            >
-              Kavya (Robotics)
-            </button>
-          </div>
-
           <button
             type="button"
             onClick={onNavigateToRegistration}
@@ -404,12 +372,6 @@ export function MemberPortal({
                   <h2 className="font-heading text-xl font-extrabold text-white tracking-tight leading-snug">
                     {activeProfile.name}
                   </h2>
-                  <p className="font-subheading text-xs text-[#D4A373] font-medium">
-                    {activeProfile.role}
-                  </p>
-                  <span className="text-[11px] font-mono-tech text-[#8E9296]">
-                    {activeProfile.usn}
-                  </span>
                 </div>
               </div>
 
