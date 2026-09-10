@@ -1,0 +1,6 @@
+{
+  "name": "Ascent Tech Club Portal",
+  "description": "Frontend UI for the Ascent technology club login, exclusive member portal, and member registration form.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

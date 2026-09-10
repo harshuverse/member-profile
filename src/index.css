@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+:root {
+  --ascent-primary: #000000;
+  --ascent-secondary: #D4A373;
+  --ascent-surface: #0C0D0E;
+  --ascent-surface-raised: #141517;
+  --ascent-border: #26282A;
+  --ascent-border-hover: #3D4042;
+  --ascent-muted: #8E9296;
+}
+
+body {
+  background-color: #000000;
+  color: #F3F4F6;
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, 'Questrial', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Headings: Inter as requested */
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Subheadings & body: Century Gothic as requested */
+.font-subheading {
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, 'Questrial', sans-serif;
+}
+
+.font-mono-tech {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Atmospheric warm glow inspired by CashFlow reference image */
+.bg-ambient-glow {
+  background: 
+    radial-gradient(1000px circle at 8% 10%, rgba(212, 163, 115, 0.18), transparent 55%),
+    radial-gradient(800px circle at 90% 85%, rgba(212, 163, 115, 0.08), transparent 50%),
+    #000000;
+}
+
+/* Precision grid from inspiration image */
+.bg-tech-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(212, 163, 115, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(212, 163, 115, 0.05) 1px, transparent 1px);
+}
+
+.bg-tech-grid-subtle {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+}
+
+
