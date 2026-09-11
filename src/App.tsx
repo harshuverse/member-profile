@@ -24,7 +24,9 @@ export default function App() {
   return (
     <div className="min-h-screen bg-ambient-glow text-[#F3F4F6] flex flex-col justify-between selection:bg-[#D4A373] selection:text-[#000000]">
       {/* Main Content Area with Page Transitions */}
-      <main className="flex-1 flex items-center justify-center relative overflow-hidden py-4 sm:py-8">
+      <main className={`flex-1 relative ${
+        currentView === 'portal' ? 'w-full min-h-screen' : 'flex items-center justify-center py-4 sm:py-8 overflow-hidden'
+      }`}>
         <AnimatePresence mode="wait">
           {currentView === 'login' && (
             <motion.div

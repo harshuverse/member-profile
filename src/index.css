@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 :root {
+  color-scheme: dark;
   --ascent-primary: #000000;
   --ascent-secondary: #D4A373;
   --ascent-surface: #0C0D0E;
@@ -10,12 +11,52 @@
   --ascent-muted: #8E9296;
 }
 
+html {
+  color-scheme: dark;
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: 100%;
+}
+
 body {
+  color-scheme: dark;
   background-color: #000000;
   color: #F3F4F6;
   font-family: 'Century Gothic', CenturyGothic, AppleGothic, 'Questrial', sans-serif;
-  min-height: 100vh;
-  overflow-x: hidden;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+}
+
+#root {
+  min-height: 100%;
+  overflow: visible;
+}
+
+/* Custom sleek dark scrollbar: prevents bright native white track and double scrollbar artifacts */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #26282A;
+  border-radius: 9999px;
+  border: 2px solid #000000;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #D4A373;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #26282A #000000;
 }
 
 /* Headings: Inter as requested */

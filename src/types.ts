@@ -44,6 +44,23 @@ export interface UploadedProject {
   version?: string;
 }
 
+export interface MemberPost {
+  id: string;
+  authorName: string;
+  authorAvatar?: string;
+  authorRole: string;
+  timeAgo: string;
+  content: string;
+  imageUrl?: string;
+  techStack?: string[];
+  githubUrl?: string;
+  demoUrl?: string;
+  likesCount: number;
+  viewsCount: number;
+  commentsCount: number;
+  isLiked?: boolean;
+}
+
 export interface MemberCertificate {
   id: string;
   title: string;
@@ -68,6 +85,14 @@ export interface MemberProfile {
   joinDate: string;
   badgeLevel: string;
   skills: string[];
+  bio?: string;
+  gender?: string;
+  location?: string;
+  phone?: string;
+  birthDate?: string;
+  coverStyle?: string;
+  followersCount?: number;
+  followingCount?: number;
   projects: ClubProject[];
   uploadedProjects: UploadedProject[];
   certificates: MemberCertificate[];
@@ -126,6 +151,14 @@ export const SAMPLE_MEMBERS: Record<string, MemberProfile> = {
     joinDate: 'Sept 2024',
     badgeLevel: 'Gold Reticle // Tier 1',
     skills: ['Python', 'AI / Machine Learning', 'Cloud / DevOps', 'Full-Stack Web', 'C++'],
+    bio: 'Lead Systems Architect at Ascent. Engineering low-latency distributed telemetry, neural inference runtimes, and high-performance avionics pipelines.',
+    gender: 'Male',
+    location: 'Advanced Computing Lab 4, Bangalore',
+    phone: '+91 98450 12042',
+    birthDate: 'June 28, 2003',
+    followersCount: 1498,
+    followingCount: 320,
+    coverStyle: 'circuit',
     projects: [
       {
         id: 'p1',
@@ -217,6 +250,14 @@ export const SAMPLE_MEMBERS: Record<string, MemberProfile> = {
     joinDate: 'Jan 2025',
     badgeLevel: 'Platinum Reticle // Tier 1',
     skills: ['Python', 'Robotics', 'ROS2', 'Embedded & IoT', 'OpenCV'],
+    bio: 'Autonomous Robotics perception engineer. Designing sub-5ms embedded LiDAR odometry pipelines on Jetson Orin and spatial navigation sensors.',
+    gender: 'Female',
+    location: 'Autonomous Robotics Bay // Bench 03',
+    phone: '+91 97421 88319',
+    birthDate: 'August 14, 2004',
+    followersCount: 890,
+    followingCount: 215,
+    coverStyle: 'nebula',
     projects: [
       {
         id: 'p3',
