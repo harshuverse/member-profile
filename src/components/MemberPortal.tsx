@@ -654,7 +654,7 @@ export function MemberPortal({
       {/* ========================================================================= */}
       <div className="flex-1 flex flex-col min-w-0">
         {/* Mobile Header (Hidden on Desktop) */}
-        <div className="md:hidden px-4 py-3 bg-[#0C0D0E] border-b border-[#26282A] flex items-center justify-between sticky top-0 z-20">
+        <div className="md:hidden px-4 py-3 bg-[#0C0D0E] border-b border-[#26282A] flex items-center sticky top-0 z-20">
           <button
             type="button"
             onClick={() => setMobileMenuOpen(true)}
@@ -662,7 +662,6 @@ export function MemberPortal({
           >
             <Menu className="w-5 h-5" />
           </button>
-          <span className="text-xs font-mono-tech text-[#D4A373]">{activeProfile.name}</span>
         </div>
 
         {/* Mobile Slide-Out Navigation Drawer */}
@@ -683,10 +682,7 @@ export function MemberPortal({
                 onClick={(e) => e.stopPropagation()}
               >
                 <div>
-                  <div className="flex items-center justify-between pb-4 border-b border-[#26282A] mb-4">
-                    <span className="font-heading text-xs font-bold text-[#8E9296] tracking-wider uppercase">
-                      Navigation
-                    </span>
+                  <div className="flex items-center justify-end pb-4 border-b border-[#26282A] mb-4">
                     <button
                       type="button"
                       onClick={() => setMobileMenuOpen(false)}
