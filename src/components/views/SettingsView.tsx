@@ -1,13 +1,11 @@
 import { useState } from 'react';
 import { motion } from 'motion/react';
 import {
-  Settings,
   Shield,
   KeyRound,
   User,
   Bell,
   Cpu,
-  LogOut,
   Check,
   Smartphone,
   Mail,
@@ -19,14 +17,13 @@ interface SettingsViewProps {
   profile: MemberProfile;
   onOpenEditProfile: () => void;
   onOpenChangePassword: () => void;
-  onLogout: () => void;
+  onLogout?: () => void;
 }
 
 export function SettingsView({
   profile,
   onOpenEditProfile,
   onOpenChangePassword,
-  onLogout,
 }: SettingsViewProps) {
   const [notifications, setNotifications] = useState({
     emailDigest: true,
@@ -53,28 +50,12 @@ export function SettingsView({
       transition={{ duration: 0.25 }}
       className="space-y-6 max-w-4xl"
     >
-      {/* Header Bar */}
-      <div className="bg-[#0C0D0E] border border-[#26282A] rounded-2xl p-6 shadow-xl flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <div>
-          <div className="flex items-center gap-2 mb-1">
-            <span className="px-2.5 py-0.5 rounded-full bg-[#141517] text-[#D4A373] text-[11px] font-subheading border border-[#D4A373]/30 flex items-center gap-1">
-              <Settings className="w-3 h-3" />
-              <span>Preferences & Security</span>
-            </span>
-          </div>
-          <h1 className="font-heading text-2xl font-bold text-white">Account Settings</h1>
-          <p className="font-subheading text-xs text-[#8E9296] mt-1">
-            Manage your credentials, lab workstation assignments, and notification streams.
-          </p>
+      {savedSettingsNotice && (
+        <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-xs font-subheading animate-fade-in w-fit">
+          <Check className="w-3.5 h-3.5" />
+          <span>Preferences updated</span>
         </div>
-
-        {savedSettingsNotice && (
-          <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-xs font-subheading animate-fade-in">
-            <Check className="w-3.5 h-3.5" />
-            <span>Preferences updated</span>
-          </div>
-        )}
-      </div>
+      )}
 
       {/* Profile & Credentials Section */}
       <div className="bg-[#0C0D0E] border border-[#26282A] rounded-2xl p-6 shadow-xl space-y-5">
@@ -119,8 +100,8 @@ export function SettingsView({
       </div>
 
       {/* Security Section */}
-      <div className="bg-[#0C0D0E] border border-[#26282A] rounded-2xl p-6 shadow-xl space-y-5">
-        <div className="flex items-center justify-between pb-4 border-b border-[#26282A]">
+      <div className="bg-[#0C0D0E] border border-[#26282A] rounded-2xl p-6 shadow-xl">
+        <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-2xl bg-[#141517] border border-[#26282A] flex items-center justify-center text-[#D4A373]">
               <Shield className="w-5 h-5" />
@@ -139,16 +120,6 @@ export function SettingsView({
             <KeyRound className="w-3.5 h-3.5" />
             <span>Change Password</span>
           </button>
-        </div>
-
-        <div className="p-3.5 rounded-xl bg-[#000000] border border-[#26282A] flex items-center justify-between text-xs font-subheading">
-          <div>
-            <h4 className="font-heading text-white font-medium">Portal Password</h4>
-            <p className="text-[#8E9296] text-[11px] mt-0.5">Last updated recently</p>
-          </div>
-          <span className="px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 text-[11px] border border-emerald-500/20">
-            Protected
-          </span>
         </div>
       </div>
 
@@ -225,18 +196,6 @@ export function SettingsView({
             </button>
           </div>
         </div>
-      </div>
-
-      {/* Danger Zone / Log Out */}
-      <div className="pt-2">
-        <button
-          type="button"
-          onClick={onLogout}
-          className="w-full py-3 px-4 rounded-xl bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/30 text-xs font-heading font-bold flex items-center justify-center gap-2 transition-colors cursor-pointer"
-        >
-          <LogOut className="w-4 h-4" />
-          <span>Sign Out of Member Portal</span>
-        </button>
       </div>
     </motion.div>
   );

@@ -56,6 +56,7 @@ export default function App() {
               <MemberPortal
                 memberIdentifier={activeMemberIdentifier}
                 registeredUser={registeredUser}
+                initialNav="home"
                 onLogout={() => setCurrentView('login')}
                 onNavigateToRegistration={() => setCurrentView('register')}
               />

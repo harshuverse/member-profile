@@ -1,4 +1,4 @@
-import { useState, useMemo, type FormEvent } from 'react';
+import { useState, useEffect, useMemo, type FormEvent } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import {
   MemberProfile,
@@ -60,6 +60,7 @@ import { SettingsView } from './views/SettingsView';
 interface MemberPortalProps {
   memberIdentifier?: string;
   registeredUser?: RegistrationFormData | null;
+  initialNav?: 'home' | 'profile' | 'projects' | 'certificates' | 'settings';
   onLogout: () => void;
   onNavigateToRegistration: () => void;
 }
@@ -155,6 +156,7 @@ const ACTIVE_PEERS = [
 export function MemberPortal({
   memberIdentifier = '1MS22CS042',
   registeredUser,
+  initialNav = 'home',
   onLogout,
   onNavigateToRegistration,
 }: MemberPortalProps) {
@@ -255,7 +257,26 @@ export function MemberPortal({
 
   const [activeProfile, setActiveProfile] = useState<MemberProfile>(resolveInitialProfile());
   const [copiedId, setCopiedId] = useState(false);
-  const [activeNav, setActiveNav] = useState<'home' | 'profile' | 'messages' | 'projects' | 'certificates' | 'gallery' | 'settings'>('profile');
+  const [activeNav, setActiveNav] = useState<'home' | 'profile' | 'messages' | 'projects' | 'certificates' | 'gallery' | 'settings'>(() => {
+    try {
+      const saved = sessionStorage.getItem('ascent_portal_nav');
+      if (saved) return saved as any;
+    } catch {}
+    return initialNav;
+  });
+
+  useEffect(() => {
+    try {
+      sessionStorage.setItem('ascent_portal_nav', activeNav);
+    } catch {}
+  }, [activeNav]);
+
+  const handleLogout = () => {
+    try {
+      sessionStorage.removeItem('ascent_portal_nav');
+    } catch {}
+    onLogout();
+  };
   const [activeTab, setActiveTab] = useState<'followers' | 'following' | 'posts' | 'projects' | 'certificates'>('posts');
   const [searchQuery, setSearchQuery] = useState('');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -640,7 +661,7 @@ export function MemberPortal({
 
           <button
             type="button"
-            onClick={onLogout}
+            onClick={handleLogout}
             className="w-full py-2 px-3 rounded-xl bg-[#000000] hover:bg-[#141517] text-[#D4A373] border border-[#D4A373]/30 text-xs font-subheading flex items-center justify-center gap-2 transition-colors cursor-pointer"
           >
             <LogOut className="w-3.5 h-3.5" />
@@ -786,7 +807,7 @@ export function MemberPortal({
                   </button>
                   <button
                     type="button"
-                    onClick={onLogout}
+                    onClick={handleLogout}
                     className="w-full py-2 px-3 rounded-xl bg-[#000000] text-[#D4A373] border border-[#D4A373]/30 text-xs font-subheading flex items-center justify-center gap-2"
                   >
                     <LogOut className="w-3.5 h-3.5" />
@@ -828,7 +849,7 @@ export function MemberPortal({
               profile={activeProfile}
               onOpenEditProfile={() => setIsEditProfileOpen(true)}
               onOpenChangePassword={() => setIsPasswordModalOpen(true)}
-              onLogout={onLogout}
+              onLogout={handleLogout}
             />
           )}
 
