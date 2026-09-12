@@ -89,7 +89,7 @@ export function SettingsView({
             <span className="font-mono-tech text-[#D4A373]">{profile.usn}</span>
           </div>
           <div className="p-3.5 rounded-xl bg-[#000000] border border-[#26282A]">
-            <span className="text-[#8E9296] block mb-1">Institutional Email</span>
+            <span className="text-[#8E9296] block mb-1">Email</span>
             <span className="text-white">{profile.email}</span>
           </div>
           <div className="p-3.5 rounded-xl bg-[#000000] border border-[#26282A]">
