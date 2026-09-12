@@ -1,4 +1,4 @@
-import { useState, type FormEvent } from 'react';
+import { useState, useEffect, type FormEvent } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { UploadedProject } from '../types';
 import { X, UploadCloud, FolderGit2, Plus, AlertCircle, CheckCircle2, Link2 } from 'lucide-react';
@@ -34,6 +34,18 @@ export function UploadProjectModal({
   const [demoUrl, setDemoUrl] = useState('');
   const [version, setVersion] = useState('v1.0.0');
   const [error, setError] = useState('');
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const origBody = document.body.style.overflow;
+    const origHtml = document.documentElement.style.overflow;
+    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = origBody;
+      document.documentElement.style.overflow = origHtml;
+    };
+  }, [isOpen]);
 
   if (!isOpen) return null;
 

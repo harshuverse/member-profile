@@ -257,13 +257,13 @@ export function MemberPortal({
 
   const [activeProfile, setActiveProfile] = useState<MemberProfile>(resolveInitialProfile());
   const [copiedId, setCopiedId] = useState(false);
-  const [activeNav, setActiveNav] = useState<'home' | 'profile' | 'messages' | 'projects' | 'certificates' | 'gallery' | 'settings'>(() => {
-    try {
-      const saved = sessionStorage.getItem('ascent_portal_nav');
-      if (saved) return saved as any;
-    } catch {}
-    return initialNav;
-  });
+  const [activeNav, setActiveNav] = useState<'home' | 'profile' | 'messages' | 'projects' | 'certificates' | 'gallery' | 'settings'>(initialNav || 'home');
+
+  useEffect(() => {
+    if (initialNav) {
+      setActiveNav(initialNav);
+    }
+  }, [initialNav, memberIdentifier]);
 
   useEffect(() => {
     try {

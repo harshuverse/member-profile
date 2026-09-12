@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, Image as ImageIcon, Check } from 'lucide-react';
 
@@ -56,6 +56,18 @@ export function EditCoverModal({
 }: EditCoverModalProps) {
   const [selectedPreset, setSelectedPreset] = useState(currentCoverStyle);
 
+  useEffect(() => {
+    if (!isOpen) return;
+    const origBody = document.body.style.overflow;
+    const origHtml = document.documentElement.style.overflow;
+    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = origBody;
+      document.documentElement.style.overflow = origHtml;
+    };
+  }, [isOpen]);
+
   if (!isOpen) return null;
 
   const handleApply = () => {
@@ -85,9 +97,6 @@ export function EditCoverModal({
                 <h3 className="text-base font-heading font-bold text-white">
                   Update Cover Banner
                 </h3>
-                <p className="text-xs font-subheading text-[#8E9296]">
-                  Select an engineering backdrop for your member workspace
-                </p>
               </div>
             </div>
             <button

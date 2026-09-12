@@ -50,10 +50,7 @@ export function ProjectsView({ profile, onOpenUpload }: ProjectsViewProps) {
       {/* Header Bar */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#0C0D0E] border border-[#26282A] rounded-2xl p-6 shadow-xl">
         <div>
-          <h1 className="font-heading text-2xl font-bold text-white">Member Projects</h1>
-          <p className="font-subheading text-xs text-[#8E9296] mt-1">
-            Showcasing engineering systems, open-source modules, and research prototypes.
-          </p>
+          <h1 className="font-heading text-2xl font-bold text-white">Projects</h1>
         </div>
 
         <button

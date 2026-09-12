@@ -64,7 +64,7 @@ export function HomeView({ profile, posts, onNavigate, onOpenUpload }: HomeViewP
       <div className="bg-[#0C0D0E] border border-[#26282A] rounded-2xl p-6 relative overflow-hidden shadow-xl">
         <div className="absolute top-0 right-0 w-96 h-96 bg-[#D4A373]/5 rounded-full blur-3xl pointer-events-none" />
         <div className="relative z-10">
-          <h1 className="font-heading text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+          <h1 className="font-heading text-[24px] font-extrabold text-white tracking-tight">
             Welcome back, {profile.name}
           </h1>
         </div>
@@ -138,7 +138,6 @@ export function HomeView({ profile, posts, onNavigate, onOpenUpload }: HomeViewP
               <Code2 className="w-4 h-4 text-[#D4A373]" />
               <span>Club Activity & Updates</span>
             </h2>
-            <span className="text-xs text-[#8E9296] font-subheading">Real-time member pulse</span>
           </div>
 
           <div className="space-y-4">

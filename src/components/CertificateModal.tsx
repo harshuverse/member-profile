@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { MemberCertificate, MemberProfile } from '../types';
 import { Download, Printer, X, Award, CheckCircle2, ShieldCheck, Sparkles } from 'lucide-react';
@@ -13,6 +13,18 @@ export function CertificateModal({ certificate, member, onClose }: CertificateMo
   const [downloading, setDownloading] = useState(false);
   const [downloadSuccess, setDownloadSuccess] = useState(false);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
+
+  useEffect(() => {
+    if (!certificate) return;
+    const origBody = document.body.style.overflow;
+    const origHtml = document.documentElement.style.overflow;
+    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = origBody;
+      document.documentElement.style.overflow = origHtml;
+    };
+  }, [certificate]);
 
   if (!certificate) return null;
 

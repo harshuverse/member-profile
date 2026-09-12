@@ -39,10 +39,7 @@ export function CertificatesView({ profile, onPreviewCertificate }: Certificates
       {/* Header Bar */}
       <div className="bg-[#0C0D0E] border border-[#26282A] rounded-2xl p-6 shadow-xl flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="font-heading text-2xl font-bold text-white">Verified Certifications</h1>
-          <p className="font-subheading text-xs text-[#8E9296] mt-1">
-            Cryptographically signed badges issued for technical breakthroughs, research, and hackathon wins.
-          </p>
+          <h1 className="font-heading text-2xl font-bold text-white">Certifications</h1>
         </div>
 
         <div className="flex items-center gap-3 bg-[#000000] border border-[#26282A] rounded-xl px-4 py-2.5 shrink-0">
